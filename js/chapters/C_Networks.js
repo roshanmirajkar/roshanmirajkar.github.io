@@ -230,66 +230,6 @@ SLIDES.push(
 		}
 
 	],
-
-	onstart:function(slideshow, state){
-
-		// Modify puzzle metric box
-		var metric = slideshow.boxes.getChildByID("networks_puzzle_metric");
-		metric.innerHTML = "";
-
-		var COLOR = "hsl(50, 100%, 50%)";
-
-		// label
-		var label = document.createElement("div");
-		metric.appendChild(label);
-		label.style.color = COLOR;
-
-		// bar
-		var bar_container = document.createElement("div");
-		metric.appendChild(bar_container);
-		bar_container.style.border = "2px solid "+COLOR;
-		bar_container.style.width = "100%";
-		bar_container.style.height = "1em";
-		bar_container.style.position = "relative";
-		var bar = document.createElement("div");
-		bar_container.appendChild(bar);
-		bar.style.background = COLOR;
-		bar.style.height = "100%";
-		bar.style.position = "absolute";
-
-		// Save this cool DOM into state
-		state.metric_label = label;
-		state.metric_bar = bar;
-
-	},
-
-	onupdate:function(slideshow, state){
-
-		// How many peeps?
-		var sim = slideshow.simulations.sims[0];
-		var peepCount = 0;
-		sim.peeps.forEach(function(peep){
-			if(peep.isPastThreshold) peepCount++;
-		});
-
-		// Modify metric box!
-		var label = getWords("networks_puzzle_metric") + " " + peepCount + " " + getWords("networks_puzzle_metric_2");
-		state.metric_label.innerHTML = label;
-		state.metric_bar.style.width = Math.round((peepCount/9)*100)+"%";
-
-		// Win only if EVERYONE hits threshold
-		if(!state.won){
-			if(peepCount==9){
-				var boxes = slideshow.boxes;
-				state.won = true;
-				boxes.removeChildByID("networks_puzzle_metric", true);
-				boxes.showChildByID("networks_puzzle_end", true);
-				sim.win();
-			}
-		}
-
-	}
-
 },
 
 // post-puzzle ramble, introduce simple contagion
