@@ -190,10 +190,10 @@ SLIDES.push(
 
 	chapter: "Networks-Majority",
 
-	clear:true,
+	clear:false,
 	add:[
-
 		// The puzzle!
+		//make the peeps on 1 zero
 		{
 			id:"puzzle",
 			type:"sim",
@@ -201,7 +201,7 @@ SLIDES.push(
 			fullscreen: true,
 			network: {
 				"contagion":0.5,
-				"peeps":[[106,106,1],[239,52,1],[376,110,1],[27,221,0],[54,365,0],[162,458,0],[308,467,0],[407,371,0],[453,241,0]],
+				"peeps":[],
 				"connections":[],
 			},
 			options:{
@@ -212,22 +212,6 @@ SLIDES.push(
 		},
 
 		// Done? Let's go... (hidden at first...)
-		{
-			type:"box",
-			id:"networks_puzzle",
-			text:"networks_puzzle", x:60, y:10, w:300
-		},
-		{
-			type:"box",
-			id:"networks_puzzle_metric",
-			text:"networks_puzzle_metric", x:60, y:220+30, w:300
-		},
-		{
-			type:"box",
-			id:"networks_puzzle_end",
-			text:"networks_puzzle_end", x:60, y:300, w:300,
-			hidden:true
-		}
 
 	],
 },
