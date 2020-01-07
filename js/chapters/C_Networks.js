@@ -120,6 +120,11 @@ SLIDES.push(
 			text:"networks_threshold_instruction", x:110, y:260, w:300,
 			align:"center"
 		},
+		{
+			type:"box",
+			id:"networks_threshold_end",
+			text:"networks_threshold_end", x:60, y:350, w:400
+		},
 		/*{
 			type:"box",
 			id:"networks_threshold_explanation",
