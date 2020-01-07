@@ -125,15 +125,6 @@ SLIDES.push(
 			id:"networks_threshold_end",
 			text:"networks_threshold_end", x:60, y:350, w:400
 		},
-		/*{
-			type:"box",
-			id:"networks_threshold_explanation",
-			text:"networks_threshold_explanation", x:205, y:345, w:300,
-			align:"right",
-			color:"#bbb",
-			fontSize:"0.75em",
-			lineHeight:"1.2em"
-		},*/
 		{
 			type:"box",
 			id:"networks_threshold_end",
@@ -167,6 +158,7 @@ SLIDES.push(
 		{ type:"box", id:"networks_threshold_instruction" },
 		{ type:"box", id:"networks_threshold_explanation" },
 		{ type:"box", id:"networks_threshold_end" }
+		
 	],
 	add:[
 		{
@@ -191,85 +183,8 @@ SLIDES.push(
 
 
 // PUZZLE: The "Majority Illusion" puzzle
-{
 
-	chapter: "Networks-Majority",
-
-	clear:false,
-	add:[
-		// The puzzle!
-		//make the peeps on 1 zero
-		{
-			id:"puzzle",
-			type:"sim",
-			x:410, y:25,
-			fullscreen: true,
-			network: {
-				"contagion":0.5,
-				"peeps":[],
-				"connections":[],
-			},
-			options:{
-				infectedFrame: 2,
-				scale: 1.5,
-				_bottle: true
-			}
-		},
-
-		// Done? Let's go... (hidden at first...)
-
-	],
-},
 
 // post-puzzle ramble, introduce simple contagion
-{
-	remove:[
-		{ type:"box", id:"networks_puzzle" },
-		{ type:"box", id:"networks_puzzle_metric" },
-		{ type:"box", id:"networks_puzzle_end" }
-	],
-	move:[
-		// shift sim to side
-		{type:"sim", id:"puzzle", x:20}
-	],
-	add:[
-		// new text
-		{
-			type:"box",
-			id:"networks_post_puzzle",
-			text:"networks_post_puzzle", x:560, y:0, w:400
-		},
-		/*{
-			type:"box",
-			id:"networks_post_puzzle_bonus",
-			text:"networks_post_puzzle_bonus", x:170, y:1000 // offscreen!
-		},*/
-	],
-
-	/*
-	onupdate:function(slideshow, state){
-
-		// How many peeps passed?
-		var sim = slideshow.simulations.sims[0];
-		var peepCount = 0;
-		sim.peeps.forEach(function(peep){
-			if(peep.numFriends>0 && !peep.isPastThreshold) peepCount++;
-		});
-
-		// Win Bonus
-		if(!state.won){
-			if(peepCount==9){
-				var winbox = slideshow.boxes.getChildByID("networks_post_puzzle_bonus");
-				if(winbox){
-					winbox.style.top = "270px";
-					state.won = true;
-				}
-			}
-		}
-
-	}
-	*/
-
-}
 
 );
